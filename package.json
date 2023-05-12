@@ -1,15 +1,16 @@
 {
   "name": "soun-status-app",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "netlify deploy --prod"
+    "start": "nodemon node src/app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2"
-  }
+  },
+  "devDependencies": {},
+  "description": ""
 }
