@@ -12,7 +12,7 @@
         <input type="text" id="inputArray" name="inputArray">
         <button type="submit">Calculate Inverse Permutation</button>
     </form>
-    <div id="result"></div>
+    <p id="result"></p>
 
     <script>
         document.getElementById('inversePermutationForm').addEventListener('submit', async (e) => {
@@ -23,8 +23,9 @@
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ inputArray })
             });
-            const data = await response.json();
-            document.getElementById('result').textContent = `Inverse Permutation: ${data.result.join(', ')}`;
+            const data = await response.json(); // Parse the response as JSON
+            const resultParagraph = document.getElementById('result');
+            resultParagraph.textContent = `Inverse Permutation: ${data.result.join(', ')}`;
         });
     </script>
 </body>
