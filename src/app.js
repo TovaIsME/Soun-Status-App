@@ -35,7 +35,7 @@ app.post('/inverse-permutation', (req, res) => {
   const inputArray = req.body.inputArray;
 
   if (!Array.isArray(inputArray)) {
-    return res.status(400).json({ error: 'Input should be an array.' });
+    return res.status(400).json({ error: 'Input should be an array ex. [1,2,3,4,5].' });
   }
 
   const result = inversePermutation(inputArray);
