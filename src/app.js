@@ -27,7 +27,7 @@ function inversePermutation(arr) {
 
 app.use(express.json());
 
-app.get('/math-daiva', (req, res) => {
+app.get('/math/daiva/is/cute/inverse-p', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index2.html'));
 });
 
