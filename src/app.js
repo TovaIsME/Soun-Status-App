@@ -28,7 +28,7 @@ function inversePermutation(arr) {
 app.use(express.json());
 
 app.get('/math-daiva', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index2.html'));
+  res.sendFile(path.join(__dirname, 'public', 'index2.html'));
 });
 
 app.post('/inverse-permutation', (req, res) => {
