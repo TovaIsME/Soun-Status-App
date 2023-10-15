@@ -6,9 +6,9 @@ app.use(express.static(path.join(__dirname + '/portweb')));
 app.get('/status', function(req, res) {
   res.sendFile(__dirname + "/public/index.html");
 });
-function inversePermutation(arr: number[]): number[] {
+function inversePermutation(arr) {
   const size = arr.length;
-  const result: number[] = [];
+  const result = [];
 
   for (let i = 0; i < size; i++) {
     for (let j = 0; j < size; j++) {
@@ -21,9 +21,11 @@ function inversePermutation(arr: number[]): number[] {
 
   return result;
 }
+
 app.use(express.json());
-app.post('/inverse-permutation', (req: Request, res: Response) => {
-  const inputArray: number[] = req.body.inputArray;
+
+app.post('/inverse-permutation', (req, res) => {
+  const inputArray = req.body.inputArray;
 
   if (!Array.isArray(inputArray)) {
     return res.status(400).json({ error: 'Input should be an array.' });
