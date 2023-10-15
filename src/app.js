@@ -24,8 +24,11 @@ function inversePermutation(arr) {
 
 app.use(express.json());
 
-app.get('/inverse-permutation', (req, res) => {
-   res.sendFile(__dirname + "/public/index2.html");
+app.get('/math-daiva', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index2.html'));
+});
+
+app.post('/inverse-permutation', (req, res) => {
   const inputArray = req.body.inputArray;
 
   if (!Array.isArray(inputArray)) {
@@ -33,7 +36,7 @@ app.get('/inverse-permutation', (req, res) => {
   }
 
   const result = inversePermutation(inputArray);
-  res.json({ result });
+  res.send(`Inverse Permutation: ${result.join(', ')}`);
 });
 
 app.get('/invite', function(res, req){
