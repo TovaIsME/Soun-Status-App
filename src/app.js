@@ -24,7 +24,8 @@ function inversePermutation(arr) {
 
 app.use(express.json());
 
-app.post('/inverse-permutation', (req, res) => {
+app.get('/inverse-permutation', (req, res) => {
+   res.sendFile(__dirname + "/public/index2.html");
   const inputArray = req.body.inputArray;
 
   if (!Array.isArray(inputArray)) {
