@@ -6,6 +6,32 @@ app.use(express.static(path.join(__dirname + '/portweb')));
 app.get('/status', function(req, res) {
   res.sendFile(__dirname + "/public/index.html");
 });
+function inversePermutation(arr: number[]): number[] {
+  const size = arr.length;
+  const result: number[] = [];
+
+  for (let i = 0; i < size; i++) {
+    for (let j = 0; j < size; j++) {
+      if (arr[j] === i + 1) {
+        result.push(j + 1);
+        break;
+      }
+    }
+  }
+
+  return result;
+}
+app.use(express.json());
+app.post('/inverse-permutation', (req: Request, res: Response) => {
+  const inputArray: number[] = req.body.inputArray;
+
+  if (!Array.isArray(inputArray)) {
+    return res.status(400).json({ error: 'Input should be an array.' });
+  }
+
+  const result = inversePermutation(inputArray);
+  res.json({ result });
+});
 
 app.get('/invite', function(res, req){
     req.redirect('https://discord.com/api/oauth2/authorize?client_id=938861493879967815&permissions=268512278&scope=bot%20applications.commands')
