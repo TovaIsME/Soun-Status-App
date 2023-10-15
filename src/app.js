@@ -47,9 +47,9 @@ app.get('/invite', function(req, res){
     res.redirect('https://discord.com/api/oauth2/authorize?client_id=938861493879967815&permissions=268512278&scope=bot%20applications.commands');
 });
 
-app.get('/me', function(req, res){
-  res.sendFile(path.join(__dirname, 'portweb', 'index.html'));
-});
+app.get('/me' ,function(req, res){
+  res.sendFile(__dirname + '/portweb/index.html');
+})
 
 app.get("*", function(req, res){
     res.redirect('/status');
