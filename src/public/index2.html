@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inverse Permutation</title>
+</head>
+<body>
+    <h1>Inverse Permutation</h1>
+    <form id="inversePermutationForm">
+        <label for="inputArray">Enter an array (comma-separated):</label>
+        <input type="text" id="inputArray" name="inputArray">
+        <button type="submit">Calculate Inverse Permutation</button>
+    </form>
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('inversePermutationForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const inputArray = document.getElementById('inputArray').value.split(',').map(Number);
+            const response = await fetch('/inverse-permutation', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ inputArray })
+            });
+            const data = await response.json();
+            document.getElementById('result').textContent = `Inverse Permutation: ${data.result.join(', ')}`;
+        });
+    </script>
+</body>
+</html>
