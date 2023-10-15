@@ -39,8 +39,9 @@ app.post('/inverse-permutation', (req, res) => {
   }
 
   const result = inversePermutation(inputArray);
-  res.send(`Inverse Permutation: ${result.join(', ')}`);
+  res.json({ result }); // Send the result as JSON
 });
+
 
 app.get('/invite', function(req, res){
     res.redirect('https://discord.com/api/oauth2/authorize?client_id=938861493879967815&permissions=268512278&scope=bot%20applications.commands');
